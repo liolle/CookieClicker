@@ -7,9 +7,11 @@
     "dev": "vite",
     "build": "vite build",
     "build-css-watch": "tailwindcss build -i src/style.css -o public/output.css --watch",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    
   },
   "devDependencies": {
+    "gh-pages": "^4.0.0",
     "tailwind": "^4.0.0",
     "vite": "^4.0.0"
   }
