@@ -2,7 +2,7 @@
   "name": "cookieclicker",
   "version": "1.0.0",
   "scripts": {
-    "tests": "echo TODO",
+    "tests": "jest --detectOpenHandles",
     "dev": "cross-env TAILWIND_MODE=watch vite",
     "build": "cross-env TAILWIND_MODE=build vite build",
     "preview": "npm run build && vite preview",
@@ -24,6 +24,7 @@
     "cross-env": "^7.0.3",
     "gh-pages": "^4.0.0",
     "jest": "^29.3.1",
+    "jsdom": "^21.0.0",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.4",
     "vite": "^4.0.4"
