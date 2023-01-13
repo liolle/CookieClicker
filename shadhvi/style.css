@@ -1,6 +1,6 @@
 .lock{
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
 }
 
 button{
@@ -46,5 +46,22 @@ padding: 20px;
 .img-fluid {
   height: 450px;
   width: 650px;
+}
 
+.cookieFall{
+  position: absolute;
+  background-image: url("cookie-fall.jpg");
+  background-size: cover;
+  border-radius: 50px;
+  animation: fall 2s linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translate(50%, 50%);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(50%, 1000%);
+  }
 }
