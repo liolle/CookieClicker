@@ -188,7 +188,7 @@ document.getElementById("cookie").addEventListener('click',()=>{
     cookieClick()
 })
 
-document.addEventListener("click", (e) => {
+document.getElementById("cookie").addEventListener("click", (e) => {
     var cookieFall = document.createElement("span");
     cookieFall.classList.add("cookieFall");
     
@@ -203,4 +203,4 @@ document.addEventListener("click", (e) => {
     setTimeout(() => {
     cookieFall.remove();
     }, 1000);
-    });
+});
