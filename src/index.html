@@ -11,34 +11,31 @@
   <body>
     <div class="cookieFall"></div>
     <div id="main" class="text-center">
+      
       <div id = "cookie" class="">
-        <img src="puppy.gif" class="rounded-circle" alt="..." onclick="cookieClick()" >
+        <img src="puppy.gif" class="rounded-circle" alt="...">
       </div>
-    
       <p>Cookie count:</p>
     
-      <div id = "numbers"></div>
+      <input type="number" name="counter" readonly id="counter" value=0 step="1" min=0>
+      <input type="number" name="multiplicator" readonly id="multiplicator" value=1 step="1" min=1>
     </div>
     <div class="text-center">
-      <button type="submit">
-        <img src="lock.png" alt="lock" class="lock" />
+      <button type="submit" id="bonus-double">
+        <img id="bonus-double-img"src ="lock.png" alt="lock" class="lock" />
       </button>
-      <button type="submit">
-        <img src="lock.png" alt="lock" class="lock" />
+      <button type="submit" id="bonus-triple">
+        <img id="bonus-triple-img" src="lock.png" alt="lock" class="lock" />
       </button>
-      <button type="submit">
-        <img src="lock.png" alt="lock" class="lock" />
+      <button type="submit" id="bonus-autoclick">
+        <img id="bonus-auto-img" src="lock.png" alt="lock" class="lock" />
       </button>
-      <button type="submit">
-        <img src="lock.png" alt="lock" class="lock" />
+      <button type="submit" id="bonus-boost">
+        <img id="bonus-boost-img" src="lock.png" alt="lock" class="lock" />
       </button>
-      <button type="submit">
-        <img src="lock.png" alt="lock" class="lock" />
-      </button>
-      <button type="submit">
-        <img src="lock.png" alt="lock" class="lock" />
-      </button>
+     <h3 id="titre"></h3>
     </div>
+
     <!-- Script -->
     <script src="main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

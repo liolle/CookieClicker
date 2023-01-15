@@ -1,206 +1,62 @@
-import './style.css'
+// ===== HTML =====
+const cookie = document.getElementById('cookie');
+const counter = document.getElementById('counter');
+const multiplicator = document.getElementById('multiplicator');
+const bonusDouble = document.getElementById('bonus-double');
+const bonusTriple = document.getElementById('bonus-triple');
+const bonusAutoclick = document.getElementById('bonus-autoclick');
+const bonusDoubleImg = document.getElementById('bonus-double-img');
+const bonusTripleImg = document.getElementById('bonus-triple-img');
+const bonusAutoImg = document.getElementById('bonus-auto-img');
+const bonusBoost = document.getElementById('bonus-boost');
+const bonusBoostImg = document.getElementById('bonus-boost-img');
+let boost=1;
+const titre=document.getElementById('titre');
 
-let bnt_states = [false,false,false,false,false,false]
+ // ===== Functions =====
+ function readMultiplicator(){
+  return Number(multiplicator.value);       // Lire la valeur dans l'input multiplicateur
+ }
 
-const bonus_map = {
-    autoclicker: {price:10,duration:15,frequency:5,price_multiplier:1.5},
+function buy(price, bonus, image,message){
+    counter.stepDown(price);                // Retirer 10 au score
+    bonus.disabled=true;                    // Désactiver le boutton
+    titre.textContent=message;
+    image.style.filter='grayscale(1)';      // Image grisée
 }
 
-const getScore = ()=>{
-    let num = parseInt(document.querySelector("#numbers").textContent,10)
+// ===== Event Listeners =====
+cookie.addEventListener('click', () => {
+    counter.stepUp(readMultiplicator() * boost);    // Incrémenter le score de la valeur du multiplicateur
+});
 
-    if (isNaN(num)){
-       
-        return 0
+bonusDouble.addEventListener('click', () => {
+    if(counter.value>=10){                  // Si le score est supérieur à 10
+        buy(10, bonusDouble, bonusDoubleImg,'bonus double');
+        multiplicator.stepUp(1);            // Augmenter le multiplicateur
     }
+});
 
-    return num
-}
-
-/**
- * 
- * @param {number} amount 
- * 
- */
-const substractScore = (amount)=>{
-
-    if (amount < 0) return
-
-    let scrore = getScore()
-    let res = scrore-amount < 0? 0 : scrore-amount
-
-    document.querySelector("#numbers").textContent = `${res}`
-    
-}
-
-
-/**
- * 
- * @param {number} amount 
- * 
- */
-const addScrore = (amount)=>{
-
-    if (amount < 0) return
-
-    document.querySelector("#numbers").textContent = `${getScore()+amount}`
-    
-}
-
-/**
- * 
- * @param {'autoclicker'} bonus 
- */
-const increaseBonusCost = (bonus)=>{
-
-    switch (bonus) {
-        case 'autoclicker':
-            let target = bonus_map[bonus]['price'] * bonus_map[bonus]['price_multiplier']
-
-            // Needs upgrade may be ?
-
-            let new_price = 0
-
-            while (new_price<target) {
-                new_price += 5
-            }
-
-            bonus_map[bonus]['price'] = new_price
-            
-            break;
-    
-        default:
-            break;
+bonusTriple.addEventListener('click', () => {
+    if(counter.value>=30){
+        buy(30, bonusTriple, bonusTripleImg,'bonus triple');
+        multiplicator.stepUp(3)
     }
+});
 
-}
+bonusAutoclick.addEventListener('click', () => {
+    if(counter.value>=50){
+        buy(50, bonusAutoclick, bonusAutoImg,'super boost');
+        setInterval(() => cookie.click(), 1000); // Click toute les 1 secondes
+    }  
+});
 
-
-/**
- * 
- * @param {'autoclicker'} bonus 
- * @return {boolean}
- */
-const buy = (bonus)=>{
-    let scrore = getScore()
-
-    switch (bonus) {
-        case 'autoclicker':
-            if(bonus_map['autoclicker']['price']>scrore){
-                // TODO display a message showing that the player can't buy the bonus
-                console.log(`Can't buy bonus`)
-                return false
-            } 
-
-            substractScore(bonus_map[bonus]['price'])
-            increaseBonusCost(bonus)
-            
-            break;
-    
-        default:
-            break;
-    }
-
-    return true
-    
-}
+bonusBoost.addEventListener('click',()=>{
+        if(counter.value>=25){
+            buy(25,bonusBoost,bonusBoostImg,'boost 2');
+            boost=2;
+            setTimeout(()=>boost=1, 30000);
 
 
-
-
-function cookieClick() { 
-    let num = getScore()
-    num += 1;
-
-    var numbers = document.getElementById("numbers");
-    numbers.innerHTML = num;      
-}
-
-
-
-
-
-// auto click 
-
-/**
- * 
- * @param {number} time 
- * @param {number} frequency 
- * @param {Function} resolve 
- * @returns 
- */
-const increment = (time,frequency,resolve)=>{
-    
-    if ( time <= 0){
-        resolve('done')
-        return
-    }
-
-
-    
-    addScrore(1)
-    
-    setTimeout(()=>{
-        increment(time -1,frequency,resolve)
-    }, Math.floor(1000/frequency))
-    
-}
-
-/**
- * 
- * @param {number} durantion 
- * @param {number} frequency 
- * @returns {Promise}
-*/
-const autoClick = async (durantion,frequency)=>{
-    return new Promise((resolve, reject) => {
-        increment(durantion*frequency,frequency,resolve)
-    })
-}
-
-
-/*
-
---------------------------------------------------------------------------------
-                                Listeners
---------------------------------------------------------------------------------
-*/
-
-const score_container = document.querySelector("#numbers")
-const score_container2 = document.getElementById("numbers")
-
-
-document.querySelector('#btn1').addEventListener('click', ()=>{
-    
-    if(bnt_states[0] || !buy('autoclicker')) return
-
-    bnt_states[0] = true
-    
-    autoClick(bonus_map['autoclicker']['duration'],bonus_map['autoclicker']['frequency'])
-    .then(()=>{
-        bnt_states[0] = false
-    })
-    
-    
-})
-
-document.getElementById("cookie").addEventListener('click',()=>{
-    cookieClick()
-})
-
-document.addEventListener("click", (e) => {
-    var cookieFall = document.createElement("span");
-    cookieFall.classList.add("cookieFall");
-    
-    cookieFall.style.left = e.offsetX + "px";
-    cookieFall.style.top = e.offsetY + "px";
-    
-    var size = Math.random() * (100 -20 +1) +20;
-    
-    cookieFall.style.width = size + "px";
-    cookieFall.style.height = size + "px";
-    document.body.appendChild(cookieFall);
-    setTimeout(() => {
-    cookieFall.remove();
-    }, 1000);
-    });
+        }
+});
