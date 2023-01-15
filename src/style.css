@@ -1,3 +1,9 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 *{  
   user-select: none;
   -moz-user-select: none;
@@ -60,16 +66,20 @@ padding: 20px;
  position: absolute;
  background-image: url("cookie-fall.jpg");
  background-size: cover;
- border-radius: 50px;
- animation: fall 2s linear infinite;
+ border-radius: 50%;
+ animation: fall 2s ease-out;
 }
 
 @keyframes fall {
  0% {
-   transform: translate(50%, 50%);
+   transform: translate(0%, 0%);
    opacity: 1;
  }
+ 50%{
+  opacity: 1;
+ }
  100% {
-   transform: translate(50%, 600%);
+   transform: translate(0%, 200%);
+   opacity: 0;
  }
 }

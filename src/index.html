@@ -8,18 +8,22 @@
     <!-- Stylesheet -->
     
   </head>
-  <body>
-    <div class="cookieFall"></div>
-    <div id="main" class="text-center">
-      <div id = "cookie" class="">
-        <img src="puppy.gif" class="rounded-circle" alt="..."  >
+  <body class=" h-screen  flex flex-col overflow-hidden">
+    <div class="cookieFall flex-1"></div>
+    <div id="main" class="text-center flex-1">
+
+      <div id="cookie_container" class="flex justify-center items-center ">
+        <div id = "cookie" class=" flex justify-center w-1/2 rounded-full overflow-hidden max-w-[400px] max-h-[400px]">
+          <img src="puppy.gif" class=" h-full w-full" alt="..."  >
+        </div>
       </div>
+
     
       <p>Cookie count:</p>
     
       <div id = "numbers"></div>
     </div>
-    <div class="text-center">
+    <div id="button_container" class="text-center flex-1">
       <button id="btn1" type="submit">
         <img src="lock.png" alt="lock" class="lock" />
       </button>
