@@ -118,6 +118,22 @@ function cookieClick() {
 
 
 
+const randomRange = (low,high)=>{
+    return Math.floor(Math.random()*high) + low
+}
+
+/**
+ * 
+ * @param {number} number 
+ * @param {number} fraction
+ * @returns {number}
+ */
+const getFraction = (number,fraction = 10)=>{
+    if (fraction<1) return Math.ceil(number * 10/100)
+
+    return Math.ceil(number * fraction/100)
+}
+
 
 
 // auto click 
@@ -188,19 +204,30 @@ document.getElementById("cookie").addEventListener('click',()=>{
     cookieClick()
 })
 
-document.addEventListener("click", (e) => {
+document.getElementById("cookie").addEventListener("click", (e) => {
     var cookieFall = document.createElement("span");
     cookieFall.classList.add("cookieFall");
+
+    //Adding a bite mor randomness 
+    let w = window.innerWidth 
+    let h = window.innerHeight 
+
+    let offsetX = getFraction(w)
+    let offsetY = getFraction(h,5)
     
-    cookieFall.style.left = e.offsetX + "px";
-    cookieFall.style.top = e.offsetY + "px";
+    // cookieFall.style.left = e.offsetX + "px";
+    // cookieFall.style.top = e.offsetY + "px";
+    let size = Math.random() * (100 -20 +1) +20;
+
+    cookieFall.style.left = randomRange(offsetX,w-offsetX-size) + "px";
+    cookieFall.style.top = randomRange(offsetY,Math.ceil(h/4)) + "px";
+
     
-    var size = Math.random() * (100 -20 +1) +20;
     
     cookieFall.style.width = size + "px";
     cookieFall.style.height = size + "px";
     document.body.appendChild(cookieFall);
     setTimeout(() => {
     cookieFall.remove();
-    }, 1000);
-    });
+    }, 2000);
+});
