@@ -67,7 +67,8 @@ padding: 20px;
  background-image: url("cookie-fall.jpg");
  background-size: cover;
  border-radius: 50%;
- animation: fall 2s ease-out;
+ animation: fall 2s ease-out ;
+ animation-fill-mode: forwards;
 }
 
 @keyframes fall {
@@ -79,7 +80,7 @@ padding: 20px;
   opacity: 1;
  }
  100% {
-   transform: translate(0%, 200%);
+   transform: translate(0%, 350%);
    opacity: 0;
  }
 }
