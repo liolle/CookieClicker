@@ -2,15 +2,28 @@ const mongoose = require('mongoose')
 
 const { Schema } = mongoose;
 
-const inventorySchema = new Schema({
-    pseudoname: {
-        type: mongoose.ObjectId,
-        required:true
+
+const bonus = new Schema({
+    
+    bonusName:{
+        type:String,
+        required : true
     },
-    bonusName: {
-        type: mongoose.ObjectId,
+    amount:{
+        type: Number,
         required:true
-    },
+    }
 })
 
-module.exports = mongoose.model("Inventory",inventorySchema)
+const inventorySchema = new Schema({
+    pseudoname: {
+        type: String,
+        required:true
+    },
+    bonus:{
+        type:[bonus],
+        required: true
+    } 
+})
+
+module.exports = mongoose.model("Inventorys",inventorySchema)

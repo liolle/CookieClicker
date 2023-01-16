@@ -1,12 +1,10 @@
 const express = require('express')
 const router = express.Router();
 
-router.get('/',(req,res,next)=>{
-    res.send('getting a list of all Scores')
-})
+const {getScore} = require('../handlers/getScore')
+const {setScore} = require('../handlers/setScore')
 
-router.post('/',(req,res,next)=>{
-    res.send('adding an element into the list of scores')
-})
+router.get('/',getScore)
+router.post('/',setScore)
 
 module.exports = router

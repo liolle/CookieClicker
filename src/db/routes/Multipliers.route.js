@@ -1,12 +1,9 @@
 const express = require('express')
 const router = express.Router();
 
-router.get('/',(req,res,next)=>{
-    res.send('getting a list of all Multiplier')
-})
+const {getMultipliers,getMultipliersId} = require('../handlers/Multipliers')
 
-router.post('/',(req,res,next)=>{
-    res.send('POST request not available')
-})
+router.get('/',getMultipliers)
+router.get('/:id',getMultipliersId)
 
 module.exports = router

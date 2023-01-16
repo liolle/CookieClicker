@@ -13,4 +13,4 @@ const multipliersSchema = new Schema({
     }
 })
 
-module.exports = mongoose.model("Multiplier",multipliersSchema)
+module.exports = mongoose.model("Multipliers",multipliersSchema)

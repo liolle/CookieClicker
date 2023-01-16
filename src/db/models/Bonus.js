@@ -21,4 +21,4 @@ const bonusSchema = new Schema({
     }
 })
 
-module.exports = mongoose.model("Bonu",bonusSchema)
+module.exports = mongoose.model("Bonus",bonusSchema)

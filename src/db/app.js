@@ -25,9 +25,9 @@ app.use('/refresh',require('./routes/refresh'))
 app.use('/logout',require('./routes/logout'))
 
 app.use(verifyJwt)
-app.use('/users',UsersRouter)
-app.use('/inventorys',InventorysRouter)
 app.use('/scores',ScoresRouter)
+app.use('/inventorys',InventorysRouter)
+
 
 
 mongoose.connection.once('open',()=>{

@@ -5,11 +5,11 @@ const { Schema } = mongoose;
 
 
 const Multiplier = new Schema({
-    symbol: {
+    multiplier: {
         type: String,
         required:true
     },
-    power: {
+    base: {
         type: Number,
         required:true
     }
@@ -26,4 +26,4 @@ const scoresSchema = new Schema({
     }
 })
 
-module.exports = mongoose.model("Score",scoresSchema)
+module.exports = mongoose.model("Scores",scoresSchema)
