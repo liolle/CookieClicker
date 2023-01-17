@@ -21,7 +21,7 @@ const login = async (req,res)=>{
     const dup = await Users.findOne({pseudoname:pseudo}).exec();  
 
     if (!dup){
-        res.status(400).json({msg: "Connection failed"})
+        res.status(400).json({msg: "pseudoname or pwd incorrect"})
         return 
     }
 
@@ -55,7 +55,7 @@ const login = async (req,res)=>{
 
     }
     else{
-        res.status(400).json({msg: "Connection failed"})
+        res.status(400).json({msg: "pseudoname or pwd incorrect"})
         return
     }
 

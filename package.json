@@ -21,6 +21,7 @@
   "homepage": "https://github.com/liolle/CookieClicker#readme",
   "devDependencies": {
     "autoprefixer": "^10.4.13",
+    "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.3",
     "gh-pages": "^4.0.0",

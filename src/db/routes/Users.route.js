@@ -1,15 +1,8 @@
 const express = require('express')
 const router = express.Router();
 
-const {refreshToken} = require('../handlers/refresh')
+const {pingAuth} = require('../handlers/pingAuth')
 
-const { connectTodb,getDb } = require('../db_util')
-let db
-
-
-
-
-
-
+router.get('/',pingAuth)
 
 module.exports = router

@@ -4,12 +4,15 @@ const cookieParser = require('cookie-parser')
 const {connectDb} = require('./db_util')
 const mongoose = require('mongoose')
 const verifyJwt = require('./middlewares/verifyJwt')
+const cors = require('cors');
 
 const app = express()
 app.use(express.json())
 app.use(cookieParser())
 
 connectDb()
+
+app.use(cors());
 
 const UsersRouter = require('./routes/Users.route')
 const InventorysRouter = require('./routes/Inventorys.route')
@@ -25,6 +28,7 @@ app.use('/refresh',require('./routes/refresh'))
 app.use('/logout',require('./routes/logout'))
 
 app.use(verifyJwt)
+app.use('/pingAuth',UsersRouter)
 app.use('/scores',ScoresRouter)
 app.use('/inventorys',InventorysRouter)
 
