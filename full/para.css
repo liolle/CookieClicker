@@ -1,0 +1,77 @@
+*{  
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+ }
+ 
+ .lock{
+   width: 60px;
+   height: 60px;
+ }
+
+ button{
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  background-color: inherit;
+   transition: transform .7s ease-in-out;
+  margin-left:3px;
+  align-items: center;
+}
+button:hover{
+  transform: rotate(180deg);
+}
+
+p {
+  font-size: 20px;
+  color: black;
+  display: block;
+  margin: 5px;
+}
+
+#numbers {
+  margin: auto;
+  text-align:center;
+  padding-top: 20px;
+  margin-bottom: 20px;
+  font-size: 30px;
+  border:5px solid;
+  border-radius:10px;
+  color: aliceblue;
+  border-color: burlywood;
+  background-color:rgb(93, 40, 34);
+  width:200px;
+  height:60px;    
+}
+
+#main {
+transition: margin-left .5s;
+padding: 20px;
+}
+
+.rounded-circle {
+  height: 300px;
+  width: 320px;
+  cursor: -webkit-grab; 
+  cursor: grab;
+}
+
+.cookieFall{
+  position: absolute;
+  background-image: url("cookie-fall.jpg");
+  background-size: cover;
+  border-radius: 50px;
+  animation: fall 2s linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translate(50%, 50%);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(50%, 600%);
+  }
+}
