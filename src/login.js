@@ -8,6 +8,7 @@ const pwd_s = document.querySelector("#pwd_s");
 
 const loginBtn = document.querySelector("#loginBtn");
 const signUpBtn = document.querySelector("#signUpBtn");
+const play_now = document.querySelector("#play_now");
 
 
 const login = (pseudo,pwd)=>{
@@ -32,6 +33,12 @@ const register = (pseudo,pwd)=>{
 }
 
 
+
+play_now.addEventListener("click",()=>{{
+
+  window.open("./main.html","_self")
+
+}})
 
 loginBtn.addEventListener("click",()=>{{
 
