@@ -100,6 +100,33 @@ buttonRest.addEventListener('click',()=>{
     multiplicator.value=1;
 
     
-});
-    
+})
 
+document.getElementById("cookie").addEventListener("click", (e) => {
+    var cookieFall = document.createElement("span");
+    cookieFall.classList.add("cookieFall");
+
+    //Adding a bite mor randomness 
+    let w = window.innerWidth 
+    let h = window.innerHeight 
+
+    let offsetX = getFraction(w)
+    let offsetY = getFraction(h,5)
+    // cookieFall.style.left = e.offsetX + "px";
+    // cookieFall.style.top = e.offsetY + "px";
+    let size = Math.random() * (100 -20 +1) +20;
+
+    cookieFall.style.left = randomRange(offsetX,w-offsetX-size) + "px";
+    cookieFall.style.top = randomRange(offsetY,Math.ceil(h/4)) + "px";
+
+    
+    
+    cookieFall.style.width = size + "px";
+    cookieFall.style.height = size + "px";
+    document.body.appendChild(cookieFall);
+    setTimeout(() => {
+    cookieFall.remove();
+    }, 2000);
+});
+
+//------------------------

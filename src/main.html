@@ -7,37 +7,41 @@
     <!-- Fonts -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- Stylesheet -->
-    
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body id="zero">
-    <div class="cookieFall"></div>
-    <div id="main" class="text-center">
-      
-      <div id = "cookie" class="">
-        <img src="puppy.gif" class="rounded-circle" alt="...">
+  <body id="zero" class=" h-screen  flex flex-col overflow-hidden">
+    <div class="cookieFall flex-1"></div>
+    <div id="main" class="text-center flex-1">
+
+      <div id="cookie_container" class="flex justify-center items-center ">
+        <div id = "cookie" class=" flex justify-center w-1/2 rounded-full overflow-hidden max-w-[400px] max-h-[400px]">
+          <img src="puppy.gif" class=" h-full w-full" alt="..."  >
+        </div>
       </div>
-      <p>Multiplicator:</p>
-    
+
+      <p>Cookie count:</p>
+
       <input type="number" name="counter" readonly id="counter" value=0 step="1" min=0>
       <input type="number" name="multiplicator" readonly id="multiplicator" value=1 step="1" min=1>
       <input type="number" name="spent" readonly id="spent" value=0 step="1" min=0>
+    
+      <div id = "numbers"></div>
     </div>
-    <div class="text-center">
+    <div id="button_container" class="text-center">
       <button type="submit" id="bonus-double">
-        <img  id="bonus-double-img"src ="lock.png"width="150px"  alt="lock" class="lock" />
+        <img  id="bonus-double-img" src ="lock.png" width="150px"  alt="lock" class="lock" />
       </button>
       <button type="submit" id="bonus-triple">
         <img id="bonus-triple-img" src="lock.png" width="150px" alt="lock" class="lock" />
       </button>
       <button type="submit" id="bonus-autoclick">
-        <img id="bonus-auto-img" src="lock.png"width="150px" alt="lock" class="lock" />
+        <img id="bonus-auto-img" src="lock.png" width="150px" alt="lock" class="lock" />
       </button>
       <button type="submit" id="bonus-boost">
-        <img id="bonus-boost-img" src="lock.png"width="150px" alt="lock" class="lock" />
+        <img id="bonus-boost-img" src="lock.png" width="150px" alt="lock" class="lock" />
       </button>
      <h3 id="titre"></h3>
-     <br>
-     <br>
+     
      <input type = "button" id="rest" value = "Reset" >
     </div>
 
