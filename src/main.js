@@ -1,4 +1,4 @@
-import './style.css'
+// import './style.css'
 
 let bnt_states = [false,false,false,false,false,false]
 
@@ -231,3 +231,5 @@ document.getElementById("cookie").addEventListener("click", (e) => {
     cookieFall.remove();
     }, 2000);
 });
+
+//------------------------
