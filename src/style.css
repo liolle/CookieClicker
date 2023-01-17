@@ -25,10 +25,9 @@ button{
   transition: transform .7s ease-in-out;
  margin-left:3px;
  align-items: center;
+ 
 }
-button:hover{
- transform: rotate(180deg);
-}
+
 
 p {
  font-size: 20px;

@@ -10,23 +10,53 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body id="zero" class=" h-screen  flex flex-col overflow-hidden">
-    <div class="cookieFall flex-1"></div>
-    <div id="main" class="text-center flex-1">
 
-      <div id="cookie_container" class="flex justify-center items-center ">
-        <div id = "cookie" class=" flex justify-center w-1/2 rounded-full overflow-hidden max-w-[400px] max-h-[400px]">
-          <img src="puppy.gif" class=" h-full w-full" alt="..."  >
-        </div>
+    <div id="top" class="flex-[3_2_60%]  flex flex-row">
+      <div id="left" class=" flex-[1_3_20%]  flex justify-center items-center">
+        
       </div>
 
-      <p>Cookie count:</p>
+      <div id="center" class=" flex-[3_1_60%] flex justify-center items-center p-2.5">
+       
+        <div id="cookie_container" class="flex justify-center items-center w-full h-full">
+          <div id = "cookie" class=" flex justify-center  rounded-full overflow-hidden w-1/2">
+            <img src="puppy.gif" class=" h-full w-full" alt="..."  >
+          </div>
+        </div>
+        
+      </div>
 
-      <input type="number" name="counter" readonly id="counter" value=0 step="1" min=0>
-      <input type="number" name="multiplicator" readonly id="multiplicator" value=1 step="1" min=1>
-      <input type="number" name="spent" readonly id="spent" value=0 step="1" min=0>
-    
-      <div id = "numbers"></div>
-      <div id="button_container" class="text-center">
+      <div id="right" class="  flex-[1_3_20%] flex flex-col">
+        
+        <div id="reset_area" class=" flex  flex-[1_5_10%] items-start justify-end p-3">
+          <div id="reset" class="  text-center  bg-red-600 h-10 w-40 rounded-2xl text-black border-2 cursor-pointer hover:bg-red-400">
+            Reset
+          </div>
+        </div>
+        <div id="logs" class=" bg-slate-50 flex-[5_1_90%] flex flex-col justify-start items-start border-2 p-2">
+            
+        </div>
+        
+
+      </div>
+
+    </div>
+    <div id="bottom" class=" flex-[2_3_40%]">
+
+      <div id="under1" class="flex justify-center items-center flex-1">
+
+        <!-- <input type="number" name="counter" readonly id="counter" value=0 step="1" min=0>
+        <input type="number" name="multiplicator" readonly id="multiplicator" value=1 step="1" min=1>
+        <input type="number" name="spent" readonly id="spent" value=0 step="1" min=0> -->
+
+      </div>
+
+      <div id="under2" class="flex justify-center items-center flex-1 flex-col">
+        <p>Cookie count:</p>
+        <div id = "numbers"></div>
+      </div>
+
+      <div id="under3" class="flex justify-center items-center flex-1 p-3">
         <button type="submit" id="btn1">
           <img  id="bonus-double-img" src ="lock.png" width="150px"  alt="lock" class="lock" />
         </button>
@@ -36,16 +66,11 @@
         <button type="submit" id="bonus-triple">
           <img id="bonus-triple-img" src="lock.png" width="150px" alt="lock" class="lock" />
         </button>
-        <button type="submit" id="bonus-autoclick">
-          <img id="bonus-auto-img" src="lock.png" width="150px" alt="lock" class="lock" />
-        </button>
-        <button type="submit" id="bonus-boost">
-          <img id="bonus-boost-img" src="lock.png" width="150px" alt="lock" class="lock" />
-        </button>
-       <h3 id="titre"></h3>
-       
-       <input type = "button" id="rest" value = "Reset" >
+        
       </div>
+
+    </div>
+
     </div>
 
     <!-- Script -->

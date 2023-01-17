@@ -1,5 +1,5 @@
 
-export const getScore = ()=>{
+ const getScore = ()=>{
     let num = parseInt(document.querySelector("#numbers").textContent,10)
 
     if (isNaN(num)){
@@ -15,7 +15,7 @@ export const getScore = ()=>{
  * @param {number} amount 
  * 
  */
-export const substractScore = (amount)=>{
+ const substractScore = (amount)=>{
 
     if (amount < 0) return
     
@@ -32,7 +32,7 @@ export const substractScore = (amount)=>{
  * @param {number} amount 
  * 
  */
-export const addScrore = (amount)=>{
+ const addScrore = (amount)=>{
 
     if (amount < 0) return
     
@@ -44,7 +44,7 @@ export const addScrore = (amount)=>{
  * 
  * @param {'autoclicker'} bonus 
  */
-const increaseBonusCost = (bonus,bonus_map)=>{
+ const increaseBonusCost = (bonus,bonus_map)=>{
 
     switch (bonus) {
         case 'autoclicker':
@@ -75,7 +75,7 @@ const increaseBonusCost = (bonus,bonus_map)=>{
  * @param {'autoclicker'} bonus 
  * @return {boolean}
  */
-export const buy_bonus = (bonus,bonus_map)=>{
+ const buy_bonus = (bonus,bonus_map)=>{
     let scrore = getScore()
     
     switch (bonus) {
@@ -102,9 +102,9 @@ export const buy_bonus = (bonus,bonus_map)=>{
 
 
 
-export function cookieClick() { 
+ function cookieClick(mul) { 
     let num = getScore()
-    num += 1;
+    num += mul;
 
     var numbers = document.getElementById("numbers");
     numbers.innerHTML = num;      
@@ -112,7 +112,7 @@ export function cookieClick() {
 
 
 
-export const randomRange = (low,high)=>{
+ const randomRange = (low,high)=>{
     return Math.floor(Math.random()*high) + low
 }
 
@@ -122,7 +122,7 @@ export const randomRange = (low,high)=>{
  * @param {number} fraction
  * @returns {number}
  */
-export const getFraction = (number,fraction = 10)=>{
+ const getFraction = (number,fraction = 10)=>{
     if (fraction<1) return Math.ceil(number * 10/100)
 
     return Math.ceil(number * fraction/100)
@@ -139,7 +139,7 @@ export const getFraction = (number,fraction = 10)=>{
  * @param {Function} resolve 
  * @returns 
  */
-export const increment = (time,frequency,resolve)=>{
+ const increment = (time,frequency,resolve)=>{
     
     if ( time <= 0){
         resolve('done')
@@ -159,7 +159,7 @@ export const increment = (time,frequency,resolve)=>{
  * @param {number} frequency 
  * @returns {Promise}
 */
-export const autoClick = async (durantion,frequency)=>{
+ const autoClick = async (durantion,frequency)=>{
     return new Promise((resolve, reject) => {
         increment(durantion*frequency,frequency,resolve)
     })
