@@ -1,53 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cookie-clicker</title>
-    <!-- Fonts -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <!-- Stylesheet -->
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
     
-    <script type="module" crossorigin src="./assets/main-68a1372e.js"></script>
-    <link rel="stylesheet" href="./assets/index-75dcf332.css">
+    <title>Log in & Sign up Form</title>
+    <script type="module" crossorigin src="./assets/login-f0f17594.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/modulepreload-polyfill-ec808ebb.js">
+    <link rel="stylesheet" href="./assets/index-a48a7689.css">
   </head>
-  <body class=" h-screen  flex flex-col overflow-hidden">
-    <div class="cookieFall flex-1"></div>
-    <div id="main" class="text-center flex-1">
-
-      <div id="cookie_container" class="flex justify-center items-center ">
-        <div id = "cookie" class=" flex justify-center w-1/2 rounded-full overflow-hidden max-w-[400px] max-h-[400px]">
-          <img src="./assets/puppy-e2a3a3ff.gif" class=" h-full w-full" alt="..."  >
+  <body>
+    <div class="container">
+      <div class="forms-container">
+        <div class="signin-signup">
+          <form  class="sign-in-form">
+            <h2 class="title">Log in</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input id="username" type="text" placeholder="Username" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input id="pwd" type="password" placeholder="Password" />
+            </div>
+            <input id="loginBtn" type="button" value="Login" class="btn solid" />
+            <p class="social-text">Or Log in with social platforms</p>
+            <div class="social-media">
+              <a href="#" class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-google"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </form>
+          <form action="#" class="sign-up-form">
+            <h2 class="title">Sign up</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input id="username_s" type="text" placeholder="Username" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input id="pwd_s" type="password" placeholder="Password" />
+            </div>
+            <input id="signUpBtn" type="button" class="btn" value="Sign up" />
+            <p class="social-text">Or Sign up with social platforms</p>
+            <div class="social-media">
+              <a href="#" class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-google"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </form>
+          <img src="./assets/hibye-81a5fe32.png" class="image" alt="" />
         </div>
       </div>
 
-    
-      <p>Cookie count:</p>
-    
-      <div id = "numbers"></div>
+      <div class="panels-container">
+        <div class="panel left-panel">
+          <div class="content">
+            <h3>New to COOKIE CLICKER ?</h3>
+            <p>
+                 Welcome to <strong><i>Cookie Clicker</i></strong>. If you are new here, Sign Up to enjoy the game and to save your scores. Hope you enjoy!!! 
+            </p>
+            <button class="btn" id="sign-up-btn">
+              Sign up
+            </button><br><br>
+            <h3>Play without Logging In !!!</h3>
+            <p>
+                 If you do not wish to save your score, play without Logging In by clicking the below button.
+            </p>
+            <button class="btn" id="sign-up-btn">
+              Play Now
+            </button>
+          </div>
+        </div>
+        <div class="panel right-panel">
+          <div class="content">
+            <h3>Already a member of COOKIE CLICKER ?</h3>
+            <p>
+                Welcome back to <strong><i>Cookie Clicker</i></strong>. If you are an existing member, click the button below to Log In and save your progress. 
+            </p>
+            <button class="btn" id="sign-in-btn">
+              Log in
+            </button><br><br>
+            <h3>Play without Logging In !!!</h3>
+            <p>
+                 If you do not wish to save your score, play without Logging In by clicking the below button.
+            </p>
+            <button class="btn" id="sign-up-btn">
+              Play Now
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-    <div id="button_container" class="text-center flex-1">
-      <button id="btn1" type="submit">
-        <img src="./assets/lock-4807ad77.png" alt="lock" class="lock" />
-      </button>
-      <button type="submit">
-        <img src="./assets/lock-4807ad77.png" alt="lock" class="lock" />
-      </button>
-      <button type="submit">
-        <img src="./assets/lock-4807ad77.png" alt="lock" class="lock" />
-      </button>
-      <button type="submit">
-        <img src="./assets/lock-4807ad77.png" alt="lock" class="lock" />
-      </button>
-      <button type="submit">
-        <img src="./assets/lock-4807ad77.png" alt="lock" class="lock" />
-      </button>
-      <button type="submit">
-        <img src="./assets/lock-4807ad77.png" alt="lock" class="lock" />
-      </button>
-    </div>
-    <!-- Script -->
+
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </body>
 </html>
