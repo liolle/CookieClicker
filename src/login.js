@@ -9,19 +9,52 @@ const pwd_s = document.querySelector("#pwd_s");
 const loginBtn = document.querySelector("#loginBtn");
 const signUpBtn = document.querySelector("#signUpBtn");
 
+import { getAccessToken, refreshAcces, forceRefresh, userLogin, userRegister, userLogout,auth } from './util.js';
 
-const login = (pseudo,pwd)=>{
+/*
 
-  const [ps,pw] = [localStorage.getItem("cclicker_ps"),localStorage.getItem("cclicker_pw")]
-  console.log("Here")
-  if (!ps || ! pw){
-    alert("Unknown user, create a new account")
+Local names :
+ACCESS TOKEN -> cclicker_access_token
+Bonus -> cclicker_bonus 
+Multipliers -> cclicker_multipliers 
+
+
+*/
+
+const login = async (pseudo,pwd)=>{
+
+  let local_token = localStorage.getItem("cclicker_access_token")
+
+  if(local_token){
+    if ((await auth(local_token) == "ping")){
+      console.log(local_token)
+      window.open("./main.html","_self")
+      return
+    }
   }
-  else if(ps == pseudo && pw == pwd){
-    window.open("./main.html","_self")
-  }
-  else{
-    alert('wrong Username or Password')
+
+  
+  try {
+    const res = await userLogin(pseudo,pwd)
+    const token_O = res.json()
+    localStorage.setItem("cclicker_access_token",token_O.token)
+    console.log('TOKEN_ '+token_O)
+    if ((await auth(token_O.token) == "ping")){
+      console.log('OK')
+      window.open("./main.html","_self")
+    }
+    
+  } catch (error) {
+    if (error == "pseudoname or pwd incorrect"){
+      alert("Wrong pseudo or password")
+    }
+    else if ("Connection issues"){
+      alert("Connection issues try later")
+    }
+    else {
+      alert("Unknown user, create a new account")
+    }
+    return
   }
   
 
@@ -41,7 +74,7 @@ loginBtn.addEventListener("click",()=>{{
     alert("enter login info")
     return
   }
-
+  console.log('Login')
   login(username_l.value , pwd_l.value)
 
 }})

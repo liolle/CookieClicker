@@ -65,7 +65,7 @@ const SERVEUR_HOST_REMOTE = "https://*********"
 /**
  * @returns {String}
  */
-const getAccessToken = ()=>{
+export const getAccessToken = ()=>{
     return localStorage.getItem('cclicker_access_token')
 }
 
@@ -73,7 +73,7 @@ const getAccessToken = ()=>{
  * return the request status
  * @returns {"token expired login to creat a new one"|"Unauthorized"|"Invalid token"|String}
  */
-const refreshAcces = async ()=>{
+export const refreshAcces = async ()=>{
     
     try {
         let res = await fetch(SERVEUR_HOST+'/refresh')
@@ -93,7 +93,7 @@ const refreshAcces = async ()=>{
  * return the request status
  * @returns {"pseudoname or pwd incorrect"|"Connection issues"|"Invalid token"|String}
  */
-const forceRefresh = async (pseudo,pwd) =>{
+export const forceRefresh = async (pseudo,pwd) =>{
 
     let token = await refreshAcces()
     console.log(token)
@@ -121,7 +121,7 @@ const forceRefresh = async (pseudo,pwd) =>{
  * @param {String} pwd 
  * @returns {Promise<"pseudoname or pwd incorrect"|"Connection issues"|{token:String}>}
  */
-const userLogin = async (pseudoname, pwd)=>{
+export const userLogin = async (pseudoname, pwd)=>{
 
     const F_OPTION = {
         method: 'POST',
@@ -142,9 +142,11 @@ const userLogin = async (pseudoname, pwd)=>{
             return res.json()
         })
         .then((data)=>{
+            console.log("DATA_" + data)
             resolve(data)
         })
         .catch((err)=>{
+            console.log("ERR_" + err)
             reject(err)
         })
         
@@ -154,7 +156,34 @@ const userLogin = async (pseudoname, pwd)=>{
 
 };
 
-const userRegister = async (pseudoname, pwd)=>{
+export const auth = (token)=>{
+    const F_OPTION = {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    }
+
+    return new Promise((resolve, reject) => {
+        fetch(SERVEUR_HOST+'/pingAuth',F_OPTION)
+        .then((res)=>{
+            console.log("ERR_" + res)
+            return res.json()
+        })
+        .then((data)=>{
+            console.log("DATA_Auth" + data)
+            resolve(data)
+        })
+        .catch((err)=>{
+            console.log("ERR_" + err)
+            reject(err)
+        })
+        
+    })
+
+}
+
+export const userRegister = async (pseudoname, pwd)=>{
 
     const F_OPTION = {
         method: 'POST',
@@ -185,7 +214,7 @@ const userRegister = async (pseudoname, pwd)=>{
 
 }
 
-const userLogout = ()=>{
+export const userLogout = ()=>{
 
     return new Promise((resolve, reject) => {
         fetch(SERVEUR_HOST+'/logout')
@@ -207,7 +236,7 @@ const userLogout = ()=>{
  * @param {string} token
  * @param {{score:{base:string,multiplier:string}[]}}
  */
-const setUserScore = (token, score) =()=>{
+export const setUserScore = (token, score)=>{
 
     const F_OPTION = {
         method: 'POST',
@@ -235,7 +264,7 @@ const setUserScore = (token, score) =()=>{
 
 }
 
-const getUserScore = (token) = ()=>{
+export const getUserScore = (token)=>{
 
     const F_OPTION = {
         method: 'GET'
@@ -266,9 +295,9 @@ const getUserScoreLocal = () =>{
 }
 
 
-(async() => {
+// (async() => {
 
-     forceRefresh("test","test")
+//      forceRefresh("test","test")
 
-})();
+// })();
 

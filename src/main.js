@@ -82,6 +82,7 @@ function readMultiplicator(){
       base_click = 1
   
       cleanNode(document.querySelector('#logs'))
+      location.reload()
   }
   
   
