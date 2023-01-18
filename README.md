@@ -4,11 +4,9 @@
   <img width="300" height="300" src="https://github.com/liolle/CookieClicker/blob/main/src/puppy.gif">
 </p>
 
-<p align="center">
-Click the dog to get as many cookies as possible. Get more cookies to unlock auto-clicker and bonus buttons.
-</p>
+*Click the dog to get as many cookies as possible. Get more cookies to unlock auto-clicker, multiplier and bonus buttons.*
 
-View the page live [COOKIE-CLICKER](https://liolle.github.io/CookieClicker/)
+*View the page live [COOKIE-CLICKER](https://liolle.github.io/CookieClicker/)*
 
 ## Development Tools
 - ![Javascript](https://img.shields.io/badge/Javascript-<red>)
