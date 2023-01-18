@@ -3,9 +3,9 @@ const {MongoClient} = require('mongodb')
 const mongoose = require('mongoose')
 
 // Connection URI 
-// const uri = process.env.DATABASE_URL_REMOTE;
+const uri = process.env.DATABASE_URL_REMOTE;
 
-const uri = process.env.DATABASE_URL_LOCAL;
+// const uri = process.env.DATABASE_URL_LOCAL;
 
 // Create a new MongoClient
 const client = new MongoClient(uri);

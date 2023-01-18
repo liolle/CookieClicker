@@ -154,19 +154,106 @@ const userLogin = async (pseudoname, pwd)=>{
 
 };
 
-const userRegister = ()=>{
+const userRegister = async (pseudoname, pwd)=>{
+
+    const F_OPTION = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(
+            {
+                pseudo: pseudoname,
+                pwd: pwd
+            }
+        )
+    }
+
+    return new Promise((resolve, reject) => {
+        fetch(SERVEUR_HOST+'/register',F_OPTION)
+        .then((res)=>{
+            return res.json()
+        })
+        .then((data)=>{
+            resolve(data)
+        })
+        .catch((err)=>{
+            reject(err)
+        })
+        
+    })
 
 }
 
 const userLogout = ()=>{
 
+    return new Promise((resolve, reject) => {
+        fetch(SERVEUR_HOST+'/logout')
+        .then((res)=>{
+            return res.json()
+        })
+        .then((data)=>{
+            resolve(data)
+        })
+        .catch((err)=>{
+            reject(err)
+        })
+        
+    })
+
 } 
 
-const setUserScore = (token) =()=>{
+/**
+ * @param {string} token
+ * @param {{score:{base:string,multiplier:string}[]}}
+ */
+const setUserScore = (token, score) =()=>{
+
+    const F_OPTION = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(
+            score
+        )
+    }
+
+    return new Promise((resolve, reject) => {
+        fetch(SERVEUR_HOST+'/scores')
+        .then((res)=>{
+            return res.json()
+        })
+        .then((data)=>{
+            resolve(data)
+        })
+        .catch((err)=>{
+            reject(err)
+        })
+        
+    })
 
 }
 
 const getUserScore = (token) = ()=>{
+
+    const F_OPTION = {
+        method: 'GET'
+    }
+
+    return new Promise((resolve, reject) => {
+        fetch(SERVEUR_HOST+'/scores')
+        .then((res)=>{
+            return res.json()
+        })
+        .then((data)=>{
+            resolve(data)
+        })
+        .catch((err)=>{
+            reject(err)
+        })
+        
+    })
 
 }
 
@@ -181,7 +268,7 @@ const getUserScoreLocal = () =>{
 
 (async() => {
 
-    // forceRefresh("test","test")
+     forceRefresh("test","test")
 
 })();
 
