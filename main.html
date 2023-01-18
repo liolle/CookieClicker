@@ -1,51 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cookie-clicker</title>
     <!-- Fonts -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- Stylesheet -->
     
-    <script type="module" crossorigin src="./assets/main-04ea6baa.js"></script>
+    <script type="module" crossorigin src="./assets/main-4b8fd12b.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/modulepreload-polyfill-ec808ebb.js">
-    <link rel="stylesheet" href="./assets/main-5bd436d0.css">
+    <link rel="stylesheet" href="./assets/main-87a87086.css">
   </head>
-  <body class=" h-screen  flex flex-col overflow-hidden">
-    <div class="cookieFall flex-1"></div>
-    <div id="main" class="text-center flex-1">
+  <body id="zero" class=" h-screen  flex flex-col overflow-hidden">
 
-      <div id="cookie_container" class="flex justify-center items-center ">
-        <div id = "cookie" class=" flex justify-center w-1/2 rounded-full overflow-hidden max-w-[400px] max-h-[400px]">
-          <img src="./assets/puppy-e2a3a3ff.gif" class=" h-full w-full" alt="..."  >
-        </div>
+    <div id="top" class="flex-[3_2_60%]  flex flex-row">
+      <div id="left" class=" flex-[1_3_20%]  flex justify-center items-center">
+        
       </div>
 
-    
-      <p>Cookie count:</p>
-    
-      <div id = "numbers"></div>
+      <div id="center" class=" flex-[3_1_60%] flex justify-center items-center p-2.5">
+       
+        <div id="cookie_container" class="flex justify-center items-center w-full h-full">
+          <div id = "cookie" class=" flex justify-center  rounded-full overflow-hidden w-1/2">
+            <img src="./assets/puppy-e2a3a3ff.gif" class=" h-full w-full" alt="..."  >
+          </div>
+        </div>
+        
+      </div>
+
+      <div id="right" class="  flex-[1_3_20%] flex flex-col">
+        
+        <div id="reset_area" class=" flex  flex-[1_5_10%] items-start justify-end p-3">
+          <div id="reset" class="  text-center  bg-red-600 h-10 w-40 rounded-2xl text-black border-2 cursor-pointer hover:bg-red-400">
+            Reset
+          </div>
+        </div>
+        <div id="logs" class=" bg-slate-50 flex-[5_1_90%] flex flex-col justify-start items-start border-2 p-2">
+            
+        </div>
+        
+
+      </div>
+
     </div>
-    <div id="button_container" class="text-center flex-1">
-      <button id="btn1" type="submit">
-        <img src="./assets/lock-a9de07e4.png" alt="lock" class="lock" />
-      </button>
-      <button type="submit">
-        <img src="./assets/lock-a9de07e4.png" alt="lock" class="lock" />
-      </button>
-      <button type="submit">
-        <img src="./assets/lock-a9de07e4.png" alt="lock" class="lock" />
-      </button>
-      <button type="submit">
-        <img src="./assets/lock-a9de07e4.png" alt="lock" class="lock" />
-      </button>
-      <button type="submit">
-        <img src="./assets/lock-a9de07e4.png" alt="lock" class="lock" />
-      </button>
-      <button type="submit">
-        <img src="./assets/lock-a9de07e4.png" alt="lock" class="lock" />
-      </button>
+    <div id="bottom" class=" flex-[2_3_40%]">
+
+      <div id="under1" class="flex justify-center items-center flex-1">
+
+        
+
+      </div>
+
+      <div id="under2" class="flex justify-center items-center flex-1 flex-col">
+        <p>Cookie count:</p>
+        <div id = "numbers"></div>
+      </div>
+
+      <div id="under3" class="flex justify-center items-center flex-1 p-3">
+        <button type="submit" id="btn1">
+          <img  id="bonus-double-img" src ="./assets/lock-a9de07e4.png" width="150px"  alt="lock" class="lock" />
+        </button>
+        <button type="submit" id="bonus-double">
+          <img  id="bonus-double-img" src ="./assets/lock-a9de07e4.png" width="150px"  alt="lock" class="lock" />
+        </button>
+        <button type="submit" id="bonus-triple">
+          <img id="bonus-triple-img" src="./assets/lock-a9de07e4.png" width="150px" alt="lock" class="lock" />
+        </button>
+        
+      </div>
+
     </div>
+
+    </div>
+
     <!-- Script -->
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
