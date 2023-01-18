@@ -142,11 +142,9 @@ export const userLogin = async (pseudoname, pwd)=>{
             return res.json()
         })
         .then((data)=>{
-            console.log("DATA_" + data)
             resolve(data)
         })
         .catch((err)=>{
-            console.log("ERR_" + err)
             reject(err)
         })
         
