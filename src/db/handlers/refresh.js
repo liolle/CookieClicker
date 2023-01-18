@@ -60,7 +60,7 @@ const refreshToken = async (req, res) => {
                 { expiresIn: process.env.ACCESS_TOKEN_TTL }
             );
             res.status(200).json({
-                token:"accessToken"
+                token:accessToken
             } )
         }
     );
