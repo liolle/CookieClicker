@@ -1,21 +1,36 @@
 # CookieClicker
 
-## Prerequisite 
-You will need to install Node.js 
+<p align="center">
+  <img width="300" height="300" src="https://github.com/liolle/CookieClicker/blob/main/src/puppy.gif">
+</p>
 
-Download the appropriate installer for your operating system from the Node.js official website (https://nodejs.org/en/download/) and run the installer.
+<p align="center">
+Click the dog to get as many cookies as possible. Get more cookies to unlock auto-clicker and bonus buttons.
+</p>
 
-OR
+View the page live [COOKIE-CLICKER](https://liolle.github.io/CookieClicker/)
 
-```bash
+## Development Tools
+- ![Javascript](https://img.shields.io/badge/Javascript-<red>)
+- ![Bootstrap](https://img.shields.io/badge/Bootstrap-<yellow>)
+- ![Node.JS](https://img.shields.io/badge/Node.JS-<red>)
+- ![MangoDB](https://img.shields.io/badge/MangoDB-<red>)
+- ![Express](https://img.shields.io/badge/Express-<red>)
+- ![Mangoose](https://img.shields.io/badge/Mangoose-<red>)
 
+## Contributors
+- [Etienne](https://github.com/liolle)
+- [Shadhvi](https://github.com/ShadhviVR)
+- [Yves](https://github.com/yvsmlk)
+
+## Develop
+```
 # Install node (Ubuntu)
 sudo apt update
 sudo apt install nodejs
 
 # Install node (Mac)
 brew install node
-
 
 # Clone this repository
 git clone https://github.com/liolle/CookieClicker.git
@@ -41,9 +56,6 @@ npm run preview
 npm run pages   
 
 #After installing Node.js and npm, you can verify that they were installed correctly by running the following commands in your terminal:
-
 node -v
 npm -v
-
-
 ```
