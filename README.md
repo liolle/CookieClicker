@@ -17,8 +17,7 @@
 - ![Mangoose](https://img.shields.io/badge/Mangoose-<red>)
 
 ## Contributors
-- [Etienne](https://github.com/liolle)
-- [Shadhvi](https://github.com/ShadhviVR)
+
 - [Yves](https://github.com/yvsmlk)
 
 ## Develop
