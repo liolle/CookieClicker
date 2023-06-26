@@ -8,8 +8,6 @@ require('dotenv').config()
 
 const setScore = async (req,res)=>{
 
-    //check header content
-
     const {pseudo,score} = req.body
 
     if((!score) && !token){
@@ -17,9 +15,7 @@ const setScore = async (req,res)=>{
         return
     } 
 
-
     const user_score = await Scores.findOne({pseudoname:req.pseudoname})
-    
 
     try {
         Object.assign(user_score,{score:req.body.score})

@@ -20,8 +20,6 @@ const register = async (req,res)=>{
     try {
         
         const hashedPwd =  await bcrypt.hash(pwd, 10)
-
-        //Store Hash
         const result = await Users.create( {
             "pseudoname":pseudo,
             "password":hashedPwd
